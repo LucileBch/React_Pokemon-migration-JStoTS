@@ -23,17 +23,23 @@ const Pokemon = () => {
   return loading ? (
     <div>Chargement</div>
   ) : (
-    <div className="link-card">
-      <div>{name}</div>
-      <img src={data.sprites.front_default} alt="poke img" />
-      <div className="type-flex">
-        {data.types.map((typesTab) => {
-          return (
-            <Link className="type-box" to={`/type/${typesTab.type.name}`}>
-              {typesTab.type.name}
-            </Link>
-          );
-        })}
+    <div>
+      <h1 className="title">Pokemon</h1>
+
+      <div className="pokemonn">
+        <div className="link-card">
+          <div>{name}</div>
+          <img src={data.sprites.front_default} alt="poke img" />
+        </div>
+        <div className="type-flex">
+          {data.types.map((typesTab) => {
+            return (
+              <Link className="type-box" to={`/type/${typesTab.type.name}`}>
+                {typesTab.type.name}
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

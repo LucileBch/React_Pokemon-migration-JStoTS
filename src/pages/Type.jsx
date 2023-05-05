@@ -24,7 +24,7 @@ const Type = () => {
     <div>Chargement</div>
   ) : (
     <div>
-      <div>{data.name}</div>
+      <h1 className="title">Type : {data.name}</h1>
       <div className="main-div">
         {data.pokemon.map((pokemon, index) => {
           // console.log(pokemon.pokemon.url.split("/")[6]);

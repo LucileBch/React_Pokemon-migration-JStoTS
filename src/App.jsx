@@ -10,14 +10,19 @@ import Types from "./pages/Types";
 function App() {
   return (
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/pokemon/:name" element={<Pokemon />} />
-        <Route path="/type/:element" element={<Type />} />
-        <Route path="/pokemon" element={<Pokemons />} />
-        <Route path="/type" element={<Types />} />
-      </Routes>
+      <div className="container">
+        <Header />
+
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/pokemon/:name" element={<Pokemon />} />
+            <Route path="/type/:element" element={<Type />} />
+            <Route path="/pokemons" element={<Pokemons />} />
+            <Route path="/types" element={<Types />} />
+          </Routes>
+        </main>
+      </div>
     </Router>
   );
 }
