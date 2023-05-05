@@ -88,6 +88,14 @@ main {
   margin-bottom: 10px;
 }
 
+.all-type {
+  display: flex;
+  width: 1024px;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .type-flex {
   display: flex;
   flex-direction: column;

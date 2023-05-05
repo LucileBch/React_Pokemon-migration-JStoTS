@@ -20,9 +20,13 @@ const Types = () => {
   return loading ? (
     <div>Chargement</div>
   ) : (
-    <div>
+    <div className="all-type">
       {data.map((types) => {
-        return <Link to={`/type/${types.name}`}>{types.name}</Link>;
+        return (
+          <Link className="type-box" to={`/type/${types.name}`}>
+            {types.name}
+          </Link>
+        );
       })}
     </div>
   );
