@@ -8,12 +8,16 @@ const Type = () => {
   const { element } = useParams();
 
   const fetchData = async () => {
-    const response = await axios.get(
-      `https://pokeapi.co/api/v2/type/${element}`
-    );
-    console.log(response.data);
-    setData(response.data);
-    setLoading(false);
+    try {
+      const response = await axios.get(
+        `https://pokeapi.co/api/v2/type/${element}`
+      );
+      // console.log(response.data);
+      setData(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error.response);
+    }
   };
 
   useEffect(() => {
@@ -30,7 +34,7 @@ const Type = () => {
           // console.log(pokemon.pokemon.url.split("/")[6]);
           const url = pokemon.pokemon.url.split("/")[6];
           return (
-            <Link to={`/pokemon/${pokemon.pokemon.name}`}>
+            <Link to={`/pokemon/${pokemon.pokemon.name}`} key={index}>
               <div className="link-card">
                 <div> {pokemon.pokemon.name}</div>
                 <img

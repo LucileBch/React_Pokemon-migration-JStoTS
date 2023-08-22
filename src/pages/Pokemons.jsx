@@ -7,10 +7,14 @@ const Pokemons = () => {
   const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
-    const response = await axios.get("https://pokeapi.co/api/v2/pokemon");
-    console.log(response.data);
-    setData(response.data.results);
-    setLoading(false);
+    try {
+      const response = await axios.get("https://pokeapi.co/api/v2/pokemon");
+      // console.log(response.data);
+      setData(response.data.results);
+      setLoading(false);
+    } catch (error) {
+      console.log(error.response);
+    }
   };
 
   useEffect(() => {

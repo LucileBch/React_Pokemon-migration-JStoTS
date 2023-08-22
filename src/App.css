@@ -1,26 +1,6 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Nintendo U", sans-serif;
-  background: #ed1a25;
-}
-
-a:link {
-  color: black;
-}
-a:visited {
-  color: black;
-}
-
-.container {
-  background: white;
-  margin: 0 auto;
-  max-width: 1024px;
-}
+/* ---------- */
+/* CSS HEADER */
+/* ---------- */
 
 .header {
   height: 6rem;
@@ -28,7 +8,6 @@ a:visited {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background: lightgray; */
   padding: 1rem 0.5rem;
 }
 
@@ -45,6 +24,15 @@ a:visited {
   font-size: 1.2rem;
 }
 
+/* ---------- */
+/* CSS GLOBAL */
+/* ---------- */
+
+body {
+  font-family: "Nintendo U", sans-serif;
+  background: #ed1a25;
+}
+
 main {
   min-height: calc(100vh - 6rem);
   display: flex;
@@ -52,24 +40,16 @@ main {
   align-items: center;
 }
 
+.container {
+  background: white;
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
 .title {
+  font-size: 33px;
   text-align: center;
   padding: 2rem 0;
-}
-
-.link-card {
-  border: black 2px solid;
-  padding: 0.4rem;
-  border-radius: 5px;
-  text-align: center;
-
-  text-decoration: none;
-}
-
-.link-card img {
-  height: 100px;
-  width: 80px;
-  object-fit: cover;
 }
 
 .main-div {
@@ -79,14 +59,31 @@ main {
   gap: 10px;
 }
 
-.type-box {
-  padding: 5px 5px;
-  border-radius: 8px;
+/* link */
 
-  color: white;
-  border: 3px solid black;
-  margin-bottom: 10px;
+a:link {
+  color: black;
 }
+a:visited {
+  color: black;
+}
+
+/* card de pokémon */
+
+.link-card {
+  border: black 2px solid;
+  padding: 0.4rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.link-card img {
+  height: 100px;
+  width: 80px;
+  object-fit: cover;
+}
+
+/* page types */
 
 .all-type {
   display: flex;
@@ -96,18 +93,24 @@ main {
   justify-content: center;
 }
 
-.type-flex {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.type-box {
+  padding: 5px 5px;
+  border-radius: 8px;
+  color: white;
+  border: 3px solid black;
+  margin-bottom: 10px;
 }
 
-.pokemonn {
+/* page pokemon */
+
+.pokemon {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-a {
-  text-decoration: none;
+.type-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
