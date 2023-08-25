@@ -25,7 +25,7 @@ const Types = () => {
     <div>Chargement</div>
   ) : (
     <div>
-      <h1 className="title">Types</h1>
+      <h1>Types</h1>
       <div className="all-type">
         {data.map((types, index) => {
           return (

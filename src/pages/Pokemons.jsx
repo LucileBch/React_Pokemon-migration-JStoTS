@@ -25,7 +25,7 @@ const Pokemons = () => {
     <div>Chargement</div>
   ) : (
     <div>
-      <h1 className="title">Pokemons</h1>
+      <h1>Pokemons</h1>
 
       <div className="main-div">
         {data.map((pokemon, index) => {

@@ -1,4 +1,48 @@
 /* ---------- */
+/* CSS GLOBAL */
+/* ---------- */
+
+body {
+  font-family: "Nintendo U", sans-serif;
+  background: #ed1a25;
+}
+
+main {
+  min-height: calc(100vh - 6rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: white;
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
+h1 {
+  font-size: 33px;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.main-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* link */
+
+a:link {
+  color: black;
+}
+a:visited {
+  color: black;
+}
+
+/* ---------- */
 /* CSS HEADER */
 /* ---------- */
 
@@ -24,51 +68,9 @@
   font-size: 1.2rem;
 }
 
-/* ---------- */
-/* CSS GLOBAL */
-/* ---------- */
-
-body {
-  font-family: "Nintendo U", sans-serif;
-  background: #ed1a25;
-}
-
-main {
-  min-height: calc(100vh - 6rem);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container {
-  background: white;
-  margin: 0 auto;
-  max-width: 1024px;
-}
-
-.title {
-  font-size: 33px;
-  text-align: center;
-  padding: 2rem 0;
-}
-
-.main-div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-/* link */
-
-a:link {
-  color: black;
-}
-a:visited {
-  color: black;
-}
-
-/* card de pokémon */
+/* -------------- */
+/*  pokemon card  */
+/* -------------- */
 
 .link-card {
   border: black 2px solid;
@@ -83,7 +85,9 @@ a:visited {
   object-fit: cover;
 }
 
-/* page types */
+/* ----------- */
+/* types pages */
+/* ----------- */
 
 .all-type {
   display: flex;
@@ -101,7 +105,9 @@ a:visited {
   margin-bottom: 10px;
 }
 
-/* page pokemon */
+/* ------------ */
+/* pokemon page */
+/* ------------ */
 
 .pokemon {
   display: flex;

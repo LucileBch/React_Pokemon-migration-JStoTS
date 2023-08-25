@@ -7,28 +7,28 @@ const Pokemon = () => {
   const [loading, setLoading] = useState(true);
   const { name } = useParams();
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${name}`
-      );
-      // console.log(response.data);
-      setData(response.data);
-      setLoading(false);
-    } catch (error) {
-      console.log(error.response);
-    }
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${name}`
+        );
+        // console.log(response.data);
+        setData(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
+
     fetchData();
-  }, []);
+  }, [name]);
 
   return loading ? (
     <div>Chargement</div>
   ) : (
     <div>
-      <h1 className="title">Pokemon</h1>
+      <h1>Pokemon</h1>
 
       <div className="pokemon">
         <div className="link-card">

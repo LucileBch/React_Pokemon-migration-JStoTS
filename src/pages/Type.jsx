@@ -7,28 +7,27 @@ const Type = () => {
   const [loading, setLoading] = useState(true);
   const { element } = useParams();
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        `https://pokeapi.co/api/v2/type/${element}`
-      );
-      // console.log(response.data);
-      setData(response.data);
-      setLoading(false);
-    } catch (error) {
-      console.log(error.response);
-    }
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://pokeapi.co/api/v2/type/${element}`
+        );
+        // console.log(response.data);
+        setData(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
     fetchData();
-  }, []);
+  }, [element]);
 
   return loading ? (
     <div>Chargement</div>
   ) : (
     <div>
-      <h1 className="title">Type : {data.name}</h1>
+      <h1>Type : {data.name}</h1>
       <div className="main-div">
         {data.pokemon.map((pokemon, index) => {
           // console.log(pokemon.pokemon.url.split("/")[6]);
