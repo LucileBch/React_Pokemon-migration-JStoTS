@@ -1,34 +1,54 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { ZodError, z } from "zod";
 
-const Pokemons = () => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+const pokemonSchema = z.object({
+  count: z.number(),
+  next: z.string().nullable(),
+  previous: z.string().nullable(),
+  results: z.array(
+    z.object({
+      name: z.string(),
+      url: z.string(),
+    })
+  ),
+});
+
+type Pokemon = z.infer<typeof pokemonSchema>;
+
+export function Pokemons(): JSX.Element {
+  const [data, setData] = useState<Pokemon | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<null | Error>(null);
 
   const fetchData = async () => {
     try {
       const response = await axios.get("https://pokeapi.co/api/v2/pokemon");
-      // console.log(response.data);
-      setData(response.data.results);
+      const parsedResult = pokemonSchema.parse(response.data);
+      setData(parsedResult);
       setLoading(false);
     } catch (error) {
-      console.log(error.response);
+      if (error instanceof ZodError) {
+        setError(new Error("Zod Error !"));
+      } else {
+        setError(new Error("An error occurred !"));
+      }
     }
   };
 
   useEffect(() => {
     fetchData();
   }, []);
+  if (error) return <div>Error: {error.message}</div>;
+  if (loading || !data) return <div>Loading...</div>;
 
-  return loading ? (
-    <div>Chargement</div>
-  ) : (
+  return (
     <div>
       <h1>Pokemons</h1>
 
       <div className="main-div">
-        {data.map((pokemon, index) => {
+        {data.results.map((pokemon, index) => {
           // console.log(pokemon.url.split("/")[6]);
           const url = pokemon.url.split("/")[6];
           return (
@@ -46,6 +66,4 @@ const Pokemons = () => {
       </div>
     </div>
   );
-};
-
-export default Pokemons;
+}

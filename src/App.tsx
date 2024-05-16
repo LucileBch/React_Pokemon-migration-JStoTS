@@ -1,13 +1,10 @@
-import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Home from "./pages/Home";
-import Pokemon from "./pages/Pokemon";
-import Pokemons from "./pages/Pokemons";
-import Type from "./pages/Type";
-import Types from "./pages/Types";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-function App() {
+import "./App.css";
+import { Header } from "./components";
+import { Home, Pokemons, Types, Type, Pokemon } from "./pages";
+
+function App(): JSX.Element {
   return (
     <Router>
       <div className="container">
@@ -15,7 +12,7 @@ function App() {
 
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route element={<Home />} path="/" />
             <Route path="/pokemon/:name" element={<Pokemon />} />
             <Route path="/type/:element" element={<Type />} />
             <Route path="/pokemons" element={<Pokemons />} />

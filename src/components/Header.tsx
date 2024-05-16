@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+
 import logo from "../assets/logo.png";
 
-const Header = () => {
+export function Header(): JSX.Element {
   return (
     <div className="header">
       <Link to={"/"}>
-        <img src={logo} alt="" />
+        <img alt="logo de pokemon" src={logo} />
       </Link>
       <div className="right-header">
         <Link to={"/pokemons"}>Pokemons</Link>
@@ -13,6 +14,6 @@ const Header = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Header;

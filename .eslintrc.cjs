@@ -6,16 +6,18 @@ module.exports = {
     "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
     "react-app",
+    "plugin:perfectionist/recommended-alphabetical",
   ],
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
-  settings: { react: { version: "18.2" } },
-  plugins: ["react-refresh"],
+  plugins: ["react-refresh", "perfectionist"],
   rules: {
+    "perfectionist/sort-interfaces": "error",
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },
     ],
-    "react/prop-types": "off",
     "react/no-unescaped-entities": 0,
+    "react/prop-types": "off",
   },
+  settings: { react: { version: "18.2" } },
 };
